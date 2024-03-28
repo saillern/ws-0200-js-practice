@@ -12,6 +12,12 @@
  */
 
 function length(str) {
+  let ans = 0;
+  for(const i of str){
+    ans +=1;
+  }
+  return ans;
+  
 }
 
 /**
@@ -26,6 +32,11 @@ function length(str) {
  *
  */
 function reverse(str) {
+  let ans ="";
+  for(let i = str.length-1;i >= 0; i-- ){
+    ans+=str[i];
+  }
+  return ans;
 }
 
 /**
@@ -41,6 +52,14 @@ function reverse(str) {
  */
 
 function findIndex(str, char) {
+  let ans = -1;
+  for(let i = 0; i < str.length; i++){
+    if (str[i] === char){
+      ans = i;
+      break;
+    }
+  }
+  return ans;
 }
 
 /**
@@ -56,6 +75,23 @@ function findIndex(str, char) {
  */
 
 function split(a, b) {
+  let ans = [];
+  let word = "";
+  for(let i = 0; i < a.length; i++){
+    if (a[i] == b){
+      if (word.length > 0){
+        ans.push(word);
+        word = "";
+      }
+    }
+    else{
+      word+= a[i];
+    }
+  }
+  if (a[-1] != b){
+    ans.push(word);
+  }
+  return ans;
 }
 
 /**
@@ -71,6 +107,11 @@ function split(a, b) {
  */
 
 function sum(array) {
+  let ans = 0;
+  for (let i = 0; i < array.length; i++){
+    ans+= array[i];
+  }
+  return ans;
 }
 
 /**
@@ -88,6 +129,15 @@ function sum(array) {
  */
 
 function average(array) {
+  let ans = 0;
+  if (array.length === 0){
+    return 0;
+  }
+  for (let i = 0; i < array.length; i++){
+    ans+= array[i];
+  }
+  return parseInt(ans/array.length);
+
 }
 
 /**
@@ -103,6 +153,8 @@ function average(array) {
  */
 
 function concat(a, b) {
+  return a.concat(b);
+
 }
 
 /**
@@ -118,6 +170,7 @@ function concat(a, b) {
  */
 
 function size(array) {
+  return array.length;
 }
 
 /**
@@ -134,6 +187,10 @@ function size(array) {
  */
 
 function minMax(array) {
+  array.sort();
+  if (array.length > 0){
+    console.log("max: "+array.at(-1)+", min: "+array.at(0));
+  }
 }
 
 /**
@@ -148,6 +205,11 @@ function minMax(array) {
  */
 
 function seq(num) {
+  let ans = [];
+  for(let i = 0; i< num; i++){
+    ans.push(i);
+  }
+  return ans;
 }
 
 /**
@@ -163,6 +225,14 @@ function seq(num) {
  */
 
 function omitSeq(num) {
+  let ans = [];
+  for(let i = 0; i<= num; i++){
+    if (i%2){
+      ans.push(i);
+    }
+  }
+  return ans;
+
 }
 
 /**
@@ -178,6 +248,13 @@ function omitSeq(num) {
  */
 
 function filter(array, num) {
+  let ans = [];
+  for(let i = 0; i < array.length; i++){
+    if (array[i] <= num){
+      ans.push(array[i]);
+    }
+  }
+  return ans;
 }
 
 
@@ -206,6 +283,16 @@ function filter(array, num) {
  */
 
 function fizzBuzz () {
+  for(let i = 1; i < 101; i++){
+    let tmp = "";
+    if (!(i%3)){
+      tmp+="Fizz";
+    }
+    if (!(i%5)){
+      tmp+="Buzz";
+    }
+    console.log(i+" "+tmp);
+  }
 }
 
 module.exports = {

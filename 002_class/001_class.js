@@ -22,6 +22,26 @@
  */
 
 class Person {
+    name = "";
+    age = 0;
+    bio = "";
+
+    constructor(_name,_age,_bio){
+      this.name = _name;
+      this.age = _age;
+      this.bio = _bio;
+    }
+
+    sayHi(){
+      console.log("Hi!!");
+    }
+    static describe(){
+      console.log("This is a Person class");
+    }
+
+    isUnderage(){
+      return age <= 20;
+    }
 }
 
 function main () {
