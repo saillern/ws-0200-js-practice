@@ -22,11 +22,7 @@
  */
 
 class Person {
-    name = "";
-    age = 0;
-    bio = "";
-
-    constructor(_name,_age,_bio){
+    constructor(_name = '', _age = 0, _bio = ''){
       this.name = _name;
       this.age = _age;
       this.bio = _bio;
@@ -39,8 +35,12 @@ class Person {
       console.log("This is a Person class");
     }
 
-    isUnderage(){
-      return age <= 20;
+    get isUnderage(){
+      return  this.age < 20;
+    }
+
+    toString(){
+      return "name: "+ this.name + ", age: " + this.age + ", bio: " + this.bio;
     }
 }
 

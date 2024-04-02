@@ -187,10 +187,14 @@ function size(array) {
  */
 
 function minMax(array) {
-  array.sort();
-  if (array.length > 0){
-    console.log("max: "+array.at(-1)+", min: "+array.at(0));
+  minValue = Infinity;
+  maxValue = 0;
+  if (array.length === 0) return ;
+  for(let i = 0; i < array.length; i++){
+    minValue = Math.min(minValue,array[i]);
+    maxValue = Math.max(minValue,array[i]);
   }
+  console.log("max: "+maxValue+", min: "+minValue);
 }
 
 /**
@@ -226,10 +230,8 @@ function seq(num) {
 
 function omitSeq(num) {
   let ans = [];
-  for(let i = 0; i<= num; i++){
-    if (i%2){
+  for(let i = 1; i<= num; i = i + 2){
       ans.push(i);
-    }
   }
   return ans;
 

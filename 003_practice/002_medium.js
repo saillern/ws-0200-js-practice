@@ -10,6 +10,9 @@
  *
  */
 function rotate(str, num) {
+  let ans = str;
+
+
 }
 
 /**
@@ -24,6 +27,22 @@ function rotate(str, num) {
  *
  */
 function removeVowels(str) {
+  const vowel = ["a","i","u","e","o"];
+  let ans = [];
+  for(let i = 0; i < str.size; i++){
+    let judge = true;
+    for(let j = 0; j < vowel.length; j++){
+      if (str[i] == vowel[j]){
+        judge = false;
+        break;
+      }
+    }
+    if (judge){
+      ans.push(str[i]);
+    }
+  }
+  return ans;
+  
 }
 
 /**
