@@ -128,15 +128,15 @@ function isPrime(num) {
  */
 function sumWithout4andNext(array) {
   let ans = 0;
-  let flag = false;
+  let skipNext = false;
   for(let i = 0; i < array.length-1; i++){
-    if (flag){
-      flag = false;
+    if (skipNext){
+      skipNext = false;
       continue
     }
     if (array[i] === 4){
       if (array[i+1] != 4){
-        flag = true;
+        skipNext = true;
       }
     }
     else{

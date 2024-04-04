@@ -11,6 +11,10 @@
  */
 
 function sumSequence (n, sum = 0) {
+  if (n === 1){
+    return 1;
+  }
+  return n+sumSequence(n-1,sum);
 }
 
 /**
@@ -24,6 +28,18 @@ function sumSequence (n, sum = 0) {
  */
 
 function fibonacci (num) {
+  if ( num === 1){
+    ans = [1];
+    return 1;
+  }
+  else if (num === 2){
+    ans.push(1)
+    return 1;
+  }
+  ans.push(ans.at(-1) + ans.at(-2));
+  return fibonacci(num-1)+fibonacci(num-1);
+
+  
 }
 
 
