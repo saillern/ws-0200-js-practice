@@ -153,7 +153,10 @@ function average(array) {
  */
 
 function concat(a, b) {
-  return a.concat(b);
+  for(let i = 0; i < b.length; i++){
+    a.push(b[i]);
+  }
+  return a;
 
 }
 
