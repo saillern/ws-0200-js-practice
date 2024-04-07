@@ -30,16 +30,16 @@ function sumSequence (n, sum = 0) {
 function fibonacci (num) {
   if ( num === 1){
     ans = [1];
-    return 1;
+    return ans;
   }
-  else if (num === 2){
+  else if (num===2){
+    ans = fibonacci(1);
     ans.push(1)
-    return 1;
+    return ans;
   }
-  ans.push(ans.at(-1) + ans.at(-2));
-  return fibonacci(num-1)+fibonacci(num-1);
-
-  
+    ans = fibonacci(num-1);
+    ans.push(ans.at(-1) + ans.at(-2));
+    return ans;
 }
 
 
@@ -96,6 +96,18 @@ function fibonacci (num) {
  */
 
 function fileSize (node, sum = 0) {
+  if (node.type === 'file'){
+    sum += node.size;
+    return sum;
+  }
+  else if(node.type === 'folder'){
+    for(let i = 0; i < node.children.length; i++){
+      sum = fileSize(node.children.at(i),sum);
+      sum += node.size;
+    }
+    return sum;
+  }
+  return sum;
 }
 
 

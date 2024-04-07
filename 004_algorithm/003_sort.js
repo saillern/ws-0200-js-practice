@@ -9,6 +9,15 @@
  */
 
 function bubbleSort (array) {
+  for(let i = 0; i < array.length - 1; i++){
+    for(let j = i; j < array.length; j++){
+      if (array[i] > array[j]){
+        let tmp = array[j];
+        array[j] =  array[i];
+        array[i] =  tmp;
+      }
+    }
+  }
   return array
 }
 
@@ -23,6 +32,16 @@ function bubbleSort (array) {
  */
 
 function insertSort (array) {
+  for(let i = 1; i < array.length; i++){
+    for(let j = 0; j < i; j++ ){
+      if(array[i] < array[j]){
+        let tmp = array[i];
+        array.splice(i,1);
+        array.splice(j,0,tmp);
+        break;
+      }
+    }
+  }
   return array
 }
 
@@ -37,10 +56,42 @@ function insertSort (array) {
  */
 
 function mergeSort (arr) {
-  return arr
+  let l = 0;
+  let r = arr.length;
+  let mid = Number((l + r)/2);
+  ans = merge(arr.splice(0,mid),arr.splice(mid));
+  return ans;
 }
 
 function merge(left, right) {
+  let midL = Number(left.length/2);
+  let midR = Number(right.length/2);
+  if (midL === 0){
+    return left;
+  }
+  if (midR === 0){
+    return right;
+  }
+  merge(left.splice(0,midL),left.splice(midL));
+  merge(right.splice(0,midR),right.splice(midR));
+  let tmp = [];
+  let l = 0;
+  let r = 0;
+  for(let i = 0; i < (left.length+right.length - 1); i++){
+    if (l < left.length){
+      if(left[l] < right[r]){
+        tmp.push(left[l]);
+        l++;
+      }
+    }
+    if(r < right.length){
+      if(left[l] > right[r]){
+        tmp.push(right[r]);
+        r++;
+      }
+    }
+  }
+  return tmp;
 }
 
 /**
@@ -54,7 +105,24 @@ function merge(left, right) {
  */
 
 function quickSort (a, start = 0, end = (a.length -1)) {
-  return a
+  if (end < 1){
+    return a;
+  }
+  let pivot = a[Number((end + start)/2)];
+  L = [];
+  R = [];
+  for(let i = start; i < end; i++){
+    if (a[i] < pivot){
+      L.push(a[i]);
+    }
+    else{
+      R.push(a[i]);
+    }
+  }
+  ansL = quickSort(L,0,L.length-1);
+  ansR = quickSort(R,0,R.length-1);
+  ansL.concat(ansR);
+  return ansL;
 };
 
 module.exports = {

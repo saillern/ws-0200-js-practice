@@ -12,6 +12,12 @@
  */
 
 function linearSearch (array, target) {
+  for(let i = 0; i < array.length;i++){
+    if(array[i] === target){
+      return i;
+    }
+  }
+  return -1;
 }
 
 /**
@@ -25,6 +31,21 @@ function linearSearch (array, target) {
  */
 
 function binarySearch (array, target) {
+  let l = 0;
+  let r = array.length;
+  while (l+1 != r){
+    let mid = Number((l + r)/2);
+    if (array[mid] === target){
+      return mid;
+    }
+    if (array[mid] < array[r]){
+      r = mid;
+    }
+    if (array[mid] > array[l]){
+      l = mid;
+    }
+  }
+  return -1;
 }
 
 module.exports = {

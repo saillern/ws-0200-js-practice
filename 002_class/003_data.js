@@ -59,7 +59,6 @@ class List {
     // TODO:
     let removeValue = this.data[targetIndex];
     this.data.splice(targetIndex,1);
-    debugger;
     return removeValue;
   }
 
@@ -130,7 +129,6 @@ class List {
   filter(target) {
     // TODO:
     let newData = [];
-    debugger;
     let i = 0;
     while( i < this.data.length){
       if ( this.data[i] != target){
@@ -138,7 +136,6 @@ class List {
       }
       i++; 
     }
-    console.log(newData);
     return new List(newData);
   }
 }
