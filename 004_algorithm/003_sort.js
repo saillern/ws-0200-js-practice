@@ -58,14 +58,15 @@ function insertSort (array) {
 function mergeSort (arr) {
   let l = 0;
   let r = arr.length;
-  let mid = Number((l + r)/2);
+  let mid = Math.round((l + r)/2);
   ans = merge(arr.splice(0,mid),arr.splice(mid));
   return ans;
 }
 
 function merge(left, right) {
-  let midL = Number(left.length/2);
-  let midR = Number(right.length/2);
+  let midL = Math.round(left.length/2);
+  let midR = Math.round(right.length/2);
+  console.log(midL,midR);
   if (midL === 0){
     return left;
   }
@@ -84,7 +85,7 @@ function merge(left, right) {
         l++;
       }
     }
-    if(r < right.length){
+    else{
       if(left[l] > right[r]){
         tmp.push(right[r]);
         r++;
@@ -105,14 +106,14 @@ function merge(left, right) {
  */
 
 function quickSort (a, start = 0, end = (a.length -1)) {
-  if (end < 1){
+  if (a.length < 1){
     return a;
   }
-  let pivot = a[Number((end + start)/2)];
+  let pivot = Math.round((end + start)/2);
   L = [];
   R = [];
   for(let i = start; i < end; i++){
-    if (a[i] < pivot){
+    if (a[i] < a[pivot]){
       L.push(a[i]);
     }
     else{
