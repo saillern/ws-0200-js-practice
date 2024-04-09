@@ -63,8 +63,8 @@ function findNum(array, num) {
  */
 
 function isDuplicate(array) {
-  const set_element = new Set(array);
-  return set_element.size !== array.length;
+  const setElement = new Set(array);
+  return setElement.size !== array.length;
 }
 
 module.exports = {

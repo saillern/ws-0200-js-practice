@@ -10,7 +10,7 @@
  *
  */
 function rotate(str, num) {
-  ans = '';
+  let ans = '';
   if (num > 0){
     ans = str.slice(-num);
     ans += str.slice(0,str.length - num);
@@ -57,11 +57,11 @@ function removeVowels(str) {
  *
  */
 function countStr(s1, s2) {
-  ans = 0;
+  let ans = 0;
   if (s1 === s2){
     return 1;
   }
-  for(i = 0; i < s1.length - s2.length; i++){
+  for(let i = 0; i < s1.length - s2.length; i++){
     if (s1.slice(i,i+s2.length) == s2){
       ans += 1
     }

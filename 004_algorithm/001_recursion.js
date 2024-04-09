@@ -29,7 +29,7 @@ function sumSequence (n, sum = 0) {
 
 function fibonacci (num) {
   if ( num === 1){
-    ans = [1];
+    let ans = [1];
     return ans;
   }
   else if (num===2){
