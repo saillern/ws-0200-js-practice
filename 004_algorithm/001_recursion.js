@@ -33,11 +33,11 @@ function fibonacci (num) {
     return ans;
   }
   else if (num===2){
-    ans = fibonacci(1);
+    let ans = fibonacci(1);
     ans.push(1)
     return ans;
   }
-    ans = fibonacci(num-1);
+    let ans = fibonacci(num-1);
     ans.push(ans.at(-1) + ans.at(-2));
     return ans;
 }
